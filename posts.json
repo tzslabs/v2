@@ -1,16 +1,8 @@
 {
     "posts": [
       {
-        "date": "2025-02-16",
-        "content": "Today I started my blog!"
-      },
-      {
-        "date": "2025-02-16",
-        "content": "First post!"
-      },
-      {
         "date": "2025-02-17",
-        "content": "Fucking manic day!"
+        "content": "Day 1. Pure madness."
       }
     ]
   }
