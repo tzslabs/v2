@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Blog</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+    .post { border-bottom: 1px solid #ccc; padding: 10px 0; }
+    .date { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>My Blog</h1>
+  <div id="posts"></div>
+  <script>
+    fetch('posts.json')
+      .then(response => response.json())
+      .then(data => {
+        const postsDiv = document.getElementById('posts');
+        data.posts.sort((a, b) => new Date(b.date) - new Date(a.date))
+          .forEach(post => {
+            const postDiv = document.createElement('div');
+            postDiv.className = 'post';
+            postDiv.innerHTML = `<div class="date">${post.date}</div>
+                                 <div class="content">${post.content}</div>`;
+            postsDiv.appendChild(postDiv);
+          });
+      })
+      .catch(err => console.error('Error:', err));
+  </script>
+</body>
+</html>
